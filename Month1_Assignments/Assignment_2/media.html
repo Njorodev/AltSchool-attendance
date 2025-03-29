@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Media Showcase</title>
+</head>
+<body>
+
+    <h1>About Me - The Story of Francis W Njoroge</h1>
+
+    <!-- Picture Element with Responsive Images -->
+    <h2>My Journey in Engineering</h2>
+    <picture>
+        <source srcset="assets/laptop_mode.gif" media="(min-width: 1024px)">
+        <source srcset="assets/tablet_mode.gif" media="(min-width: 768px)">
+        <source srcset="assets/phone_mode.gif" media="(max-width: 767px)">
+        <img src="assets/default.png" alt="Francis working on a tech project">
+    </picture>
+<!-- Responsive Messages Based on Device Mode -->
+    <p>
+        <span style="display: none;" id="laptopMessage"><b>You are using laptop mode.</b></span>
+        <span style="display: none;" id="tabletMessage"><b>You are using tablet mode.</b></span>
+        <span style="display: none;" id="phoneMessage"><b>You are using phone mode.</b></span>
+    </p>
+    
+    <script>
+        function updateMessage() {
+            var width = window.innerWidth;
+            document.getElementById("laptopMessage").style.display = width >= 1024 ? "block" : "none";
+            document.getElementById("tabletMessage").style.display = (width >= 768 && width < 1024) ? "block" : "none";
+            document.getElementById("phoneMessage").style.display = width < 768 ? "block" : "none";
+        }
+        window.onload = updateMessage;
+        window.onresize = updateMessage;
+    </script>
+
+    <p>I am a passionate Computer and Electronics engineer studying at Mount Kenya University. My mission is to revolutionize technology in AI, robotics, and blockchain.</p>
+
+    <!-- Audio Element for Personal Message -->
+    <h2>Listen to My Voice Message</h2>
+    <audio controls>
+        <source src="assets/my-introduction.mp3" type="audio/mpeg">
+        <source src="audio/my-introduction.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Video Element for a Self-Introduction -->
+    <h2>Watch My Journey</h2>
+    <video controls width="600">
+        <source src="assets/my_introduction.mp4" type="video/mp4">
+        <source src="videos/my-journey.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>Why Technology?</h2>
+    <p>Technology is my passion because it shapes the world. I aim to contribute to innovations that solve real-world problems.</p>
+    <li><a href="index.html">Home</a></li>
+
+</body>
+</html>
