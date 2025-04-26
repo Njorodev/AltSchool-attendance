@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+ font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  width: 430px;
+  height: 250px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+  position: absolute;
+  top: -15px;
+  left: 40px;
+  background-color: #ff1493;
+  color: black;
+  font-weight: bold;
+  font-size: 1.9em;
+  padding: 21px 80px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.content {
+  padding-top: 50px;
+  font-size: 19px;
+  font-weight: 597; 
+  color: #333;
+  line-height: 1.6;
+}
+
