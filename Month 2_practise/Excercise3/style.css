@@ -7,6 +7,18 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+.home-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
 .card-container {
     position: relative; 
     display: inline-block;
