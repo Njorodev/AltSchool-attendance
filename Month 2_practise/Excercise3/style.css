@@ -1,12 +1,14 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-color: #B0A8C7; 
+
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    flex-direction: column; /* To stack the button above the container */
 }
+
 .home-button {
     display: inline-block;
     margin-bottom: 20px;
@@ -17,19 +19,29 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-  }
-  
-.card-container {
-    position: relative; 
-    display: inline-block;
 }
+
+.card-container {
+    position: relative;
+    background-color: #B0A8C7;
+    display: flex; /* Use flexbox to center the card */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 780px;
+    height: 700px;
+    /* align-items: center; Remove this as it's redundant with the flex properties */
+}
+
 .card {
-    background-color: #F4F3F6; 
+    background-color: #F4F3F6;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 450px;
-    overflow: hidden;
-    position: relative;
+    overflow: show;
+    position: absolute; /* To allow precise centering within the container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* The magic to truly center */
 }
 
 .ribbon {
@@ -48,6 +60,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius:10px 10px 0px 0px;
 }
 
 .watch-image {
