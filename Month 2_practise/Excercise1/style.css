@@ -1,124 +1,67 @@
 body {
-
   margin: 0;
-
-  padding: 20px; /* Add some padding around the body */
-
+  padding: 0;
   background-color: #030303;
-
   font-family: 'Urbanist', sans-serif;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
-  min-height: 100vh; /* Use min-height for better responsiveness */
-
+  height: 100vh;
 }
-
 
 .container {
-
-  width: 90%; /* Make the container responsive using percentage */
-
-  max-width: 1050px; /* Set a maximum width */
-
+  height: 550px;
+  width: 1050px;
   background-color: #1e1e1e;
-
   margin-bottom: 30px;
-
+  display: inline-block;
   border-bottom: 20px solid #fbfaf8;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
-  flex-direction: column; /* Stack items vertically on smaller screens */
-
 }
-
 
 .card {
-
   background-color: white;
-
   border-radius: 10px;
-
-  width: 90%; /* Make the card responsive */
-
-  max-width: 525px; /* Set a maximum width for the card */
-
-  height: auto; /* Allow height to adjust based on content */
-
+  width: 525px;
+  height: 300px;
   padding: 20px;
-
   position: relative;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-  left: auto; /* Remove fixed left positioning */
-
-  margin-bottom: 20px; /* Add some margin below the card */
-
+  left: -200px;
 }
-
 
 .heading {
-
   position: absolute;
-
+  height: 75px;
+  width: 310px;
   top: -25px;
-
-  left: 50%; /* Center the heading horizontally */
-
-  transform: translateX(-50%); /* Adjust for the heading's width */
-
+  left: 45px;
   background-color: #ff1493;
-
   color: black;
-
   font-family: 'Urbanist', sans-serif;
-
   font-weight: 900;
-
-  font-size: 2em; /* Adjust font size for responsiveness */
-
-  padding: 15px 40px; /* Adjust padding */
-
-  border-radius: 5px;
-
-  white-space: nowrap; /* Prevent text from wrapping */
-
+  font-size: 2.8em;
+  padding: 20px 80px;
+  border-radius: 5px 5px 5px 5px;
 }
-
 
 .content {
-
-  padding-top: 60px; /* Adjust padding based on heading size */
-
-  font-size: 1.2em; /* Adjust font size for responsiveness */
-
+  padding-top: 82px;
+  font-size: 23px;
   font-family: 'Urbanist', sans-serif;
-
   font-weight: 600;
-
   color: #0a0a0a;
-
-  line-height: 1.4; /* Adjust line height for readability */
-
+  line-height: 1.6;
 }
-
 
 .home-button {
   display: inline-block;
-  position: fixed; /* <-- Make it fixed */
-  top: 20px;        /* Distance from the top */
-  left: 50%;        /* Center it horizontally */
-  transform: translateX(-50%); /* Adjust to truly center */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px 20px;
   background-color: #2980b9;
   color: white;
@@ -126,87 +69,57 @@ body {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
-  z-index: 1000; /* Make sure it stays above other elements */
+  z-index: 1000;
 }
 
 .home-button:hover {
   background-color: #1c5980;
 }
 
-/* Media Queries for smaller screens */
-
 @media (max-width: 768px) {
-
   .container {
-
-    width: 95%;
-
-    height: auto; /* Adjust height automatically */
-
-    padding: 20px;
-
+    width: 90%;
+    height: auto;
+    flex-direction: column;
   }
-
 
   .card {
-
-    width: 95%;
-
+    width: 100%;
+    left: 0;
+    box-shadow: none;
   }
-
 
   .heading {
-
-    font-size: 1.8em;
-
-    padding: 10px 30px;
-
-    top: -20px;
-
+    font-size: 2em;
+    width: auto;
+    padding: 15px;
   }
-
 
   .content {
-
+    font-size: 20px;
+    line-height: 1.4;
     padding-top: 50px;
-
-    font-size: 1.1em;
-
   }
-
 
   .home-button {
-
     font-size: 0.9em;
-
     padding: 8px 16px;
-
-    margin-bottom: 15px;
-
   }
-
 }
 
-
 @media (max-width: 480px) {
-
   .heading {
-
-    font-size: 1.5em;
-
-    padding: 8px 20px;
-
-    top: -15px;
-
+    font-size: 1.8em;
+    padding: 10px;
   }
-
 
   .content {
-
-    font-size: 1em;
-
-    padding-top: 40px;
-
+    font-size: 18px;
+    line-height: 1.2;
   }
 
-} 
+  .home-button {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+}
