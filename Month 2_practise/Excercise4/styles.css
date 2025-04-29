@@ -1,184 +1,164 @@
-body {
-    font-family: sans-serif;
+@font-face {
+    font-family: "Brown";
+    src: url("../assets/Brown-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  * {
     margin: 0;
-    background-color: #f7f7f7;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Brown", sans-serif;
+    background-color: #f4fdfd;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
-
-.container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .container {
     display: flex;
-    width: 90%;
+    gap: 40px;
     max-width: 1200px;
-    overflow: hidden;
-}
-
-.left-section {
-    background-color: #f0faff; /* Light blue background */
-    padding: 40px;
-    width: 45%;
-    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: transparent;
+  }
+  
+  .left-panel {
+    flex: 1;
+    max-width: 460px;
+  }
+  
+  .logo {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .left-panel h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .left-panel p {
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .form-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 580px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.floating-elements {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    gap: 20px;
+  }
+  
+  .row {
     display: flex;
-    gap: 15px;
-}
-
-
-.pie-chart-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover; /* Ensures the image fills the circle */
-}
-
-
-
-
-.content {
-    margin-top: 80px; /* Adjust based on floating elements */
-}
-
-.content h1 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 2.5em;
-}
-
-.content p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.right-section {
-    padding: 40px;
-    width: 55%;
-    background-color: #fff;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-card {
-    width: 80%;
-}
-
-/* New CSS for grid layout */
-.form-grid-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px; /* Space between grid items */
-    margin-bottom: 20px; /* Space below each row */
-}
-
-/* Target the form-group within the grid rows */
-.form-grid-row .form-group {
-    margin-bottom: 0; /* Remove default margin for individual groups in the row */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
+    flex-direction: column;
+    flex: 1;
+    min-width: 100px;
+  }
+  
+  label {
+    font-weight: 600;
     margin-bottom: 5px;
-    color: #555;
-    font-weight: bold;
-    font-size: 0.95em;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="password"],
-.form-group select {
-    width: calc(100% - 22px);
+    font-size: 14px;
+  }
+  
+  input,
+  select {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1em;
-}
-
-.form-group select {
-    appearance: none; /* Remove default arrow */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23666" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-}
-
-.date-of-birth {
+    font-size: 14px;
+  }
+  
+  .input-icon {
     position: relative;
-}
-
-.date-input {
-    display: flex;
-    align-items: center;
-}
-
-.date-input .icon-wrapper {
-    position: absolute;
-    right: 10px;
-    color: #999;
-    cursor: pointer;
-}
-
-.password-input {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.password-input .icon-wrapper {
-    position: absolute;
-    right: 10px;
-    color: #999;
-    cursor: pointer;
-}
-
-.register-button {
-    background-color: #00bcd4; /* Teal color */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
+  }
+  
+  .input-icon input {
     width: 100%;
-    margin-top: 20px;
-}
-
-.register-button:hover {
-    background-color: #0097a7;
-}
-
-.terms {
-    font-size: 0.8em;
-    color: #777;
-    margin-top: 10px;
+    padding-right: 35px;
+  }
+  
+  .input-icon img {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  button {
+    background-color: #2cd0c6;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #25b7af;
+  }
+  
+  .terms {
     text-align: center;
-}
-
-.terms a {
-    color: #00bcd4;
-    text-decoration: none;
-}
-
-.terms a:hover {
+    font-size: 13px;
+    color: #444;
+    margin-top: 10px;
+  }
+  
+  .terms a {
+    color: #2cd0c6;
     text-decoration: underline;
-}
-
-/* You might need to adjust sizes and colors to match the image exactly */
+  }
+  
+  /* 🔁 Responsive Design */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .left-panel {
+      max-width: 100%;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+  
+    .form-card {
+      max-width: 100%;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  }
+  
