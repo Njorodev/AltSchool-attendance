@@ -1,0 +1,279 @@
+/* General styles */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    background-color: #f5f8fa;
+    color: #1d2c3c;
+  }
+  
+  .wp-pusher {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon {
+    width: 30px;
+    margin-right: 10px;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .nav-item {
+    cursor: pointer;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border: 1px solid #1d2c3c;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #e0e6ea;
+    margin: 0 0 30px;
+  }
+  
+  /* Checkout layout */
+  .checkout {
+    display: flex;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-section {
+    flex: 2;
+    padding: 40px;
+  }
+  
+  .sidebar {
+    flex: 1;
+    background-color: #1179bf;
+    color: white;
+    padding: 40px 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 40px;
+  }
+  
+  .input-group1 {
+    margin-bottom: 20px;
+  }
+  .input-group {
+    margin-bottom: 20px;
+  }
+ .name-row {
+  display: flex;
+  gap: 30px;
+}
+
+.name-row .input-group {
+  flex: 1;
+}
+
+  .input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfe3e8;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .card-inputs {
+    display: flex;
+  }
+  
+  .card-inputs input {
+    flex: 1;
+  }
+
+  /* Circle outline */
+  .circle-outline {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #1179bf;
+    border-radius: 50%;
+    color: #1179bf;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .circle-outline2 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #1179bf;
+    border-radius: 50%;
+    color: #1179bf;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .circle-outline1 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:15px;
+    height: 15px;
+    border: 3px solid #DADADA;
+    border-radius: 50%;
+    color: #DADADA;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .buy-btn {
+    background-color: #038e7d;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .support {
+    font-size: 14px;
+    color: #636B6F;
+  }
+  
+  .support a {
+    color: #636B6F;
+    text-decoration: underline;
+  }
+  
+  .stripe-logo {
+    position: relative;
+    height:30px;
+    width :120px;
+    left: 150px;
+    border-radius: 10px;
+    align-items:center;
+    padding: 10px;
+    background-color: #566473;
+    font-size: 14px;
+    color: #b0bfcf;
+    margin-top: 10px;
+  }
+  
+  .plan {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 40px;
+    font-weight: 300;
+    margin: 10px 0;
+  }
+  .price sup {
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: super;}
+  .price span.duration {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .renewal {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .features li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .switch-plan {
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  .switch-plan a {
+    color: white;
+    border-bottom: 4px solid #ffffff;;
+    text-decoration: none;
+  }
+  .sidebar-separator {
+    height: 3px;
+    background-color: #ffffff;
+    opacity: 0.2; 
+    margin: 30px 0;
+  }
+  
+  .testimonial {
+    margin-top: 30px;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .user img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .footer-text {
+    text-decoration:none;
+    text-align: center;
+    font-size: 13px;
+    color: #b0bfcf;
+    margin: 30px 0;
+  }
+  .footer-text a {
+    color: #3a9bcb;
+    text-decoration: none;
+  }
+  
