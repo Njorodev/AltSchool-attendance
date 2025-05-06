@@ -1,12 +1,45 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    flex-direction: column; /* To stack the button above the container */
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+/* Zoom-out wrapper scales everything inside based on viewport width */
+.zoom-wrapper {
+    transform-origin: top center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Scale proportionally based on screen width */
+@media (max-width: 1440px) {
+    .zoom-wrapper {
+        transform: scale(0.9);
+    }
+}
+@media (max-width: 1200px) {
+    .zoom-wrapper {
+        transform: scale(0.8);
+    }
+}
+@media (max-width: 1000px) {
+    .zoom-wrapper {
+        transform: scale(0.7);
+    }
+}
+@media (max-width: 800px) {
+    .zoom-wrapper {
+        transform: scale(0.6);
+    }
+}
+@media (max-width: 600px) {
+    .zoom-wrapper {
+        transform: scale(0.5);
+    }
 }
 
 .home-button {
