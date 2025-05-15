@@ -10,13 +10,30 @@ body {
   left: -721px;
   margin: 30;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 .highlight {
   color: #007bff;
 }
 .highlight {
   color: #007bff;
+}
+#unique-highlight {
+  position: relative;
+  display: inline-block;
+  color: #007bff;
+}
+
+#unique-highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 100%;
+  height: 20px;
+  background: url("./assets/marker.png") no-repeat center;
+  background-size: contain;
+  z-index: -1;
 }
 
 /* Header */
@@ -39,7 +56,6 @@ header {
 }
 
 .logo h2 {
-  font-family: "Gilroy-Bold";
   font-size: 24px;
   color: #0065fe;
 }
@@ -109,11 +125,12 @@ nav ul li a:hover {
 .illustration {
   position: relative;
   left: 434px;
-  border-width: 2px;
-  border-color: #2d8dd7;
+  text-align: center;
+  background: linear-gradient(to right, #e2e9f0, #ffffff);
+  border: 0.5px solid #005ae2;
   border-radius: 24px;
   width: 768px;
-  height: 224px;
+  height: 150px;
   margin-top: 50px; /* Prevents overlap */
   z-index: 1; /* Keeps it behind hero */
 }
@@ -122,10 +139,20 @@ nav ul li a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  padding-left: 50px;
+  padding-bottom: 0px;
   gap: 20px;
   width: 384px;
-  height: 80px;
+}
+.background-shape {
+  position: absolute;
+  top: 0%; /* Adjust placement */
+  left: 1.5%; /* Position behind text */
+  width: 238.55px; /* Adjust based on design */
+  height: auto;
+  transform: rotate(-2.82deg) scale(1.15); /* Tilt the shape */
+  opacity: 0.6; /* Make it subtle */
+  z-index: -1; /* Push behind content */
 }
 
 .hero h1 {
@@ -137,17 +164,9 @@ nav ul li a:hover {
   color: #007bff;
 }
 
-
-.cta-buttons a {
-  text-decoration: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-weight: 500;
-  margin: 0 10px;
-}
-.eliprect{
-  width: 1440px;
-  height: 93px;
+.choose-plan-container {
+  display: flex;
+  gap: 15px;
 }
 .sign-up {
   background-color: #007bff;
@@ -155,12 +174,19 @@ nav ul li a:hover {
 }
 
 .learn-more {
-  color: #007bff;
+  font-size: 16px;
+  color: #0065fe;
+  text-decoration: none;
+}
+.eliprect {
+  gap: 1000px;
+  width: 1440px;
+  height: 93px;
 }
 
 .features {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 60px 140px;
   gap: 40px;
@@ -170,18 +196,16 @@ nav ul li a:hover {
 }
 
 .feature {
-  flex: 1; 
+  flex: 1;
   text-align: left;
 }
 
 .stats {
   display: flex;
-  flex: 1; 
+  flex: 1;
   justify-content: flex-end;
   align-items: center;
 }
-
-
 
 .stat-box {
   display: flex;
@@ -206,13 +230,19 @@ nav ul li a:hover {
 
 .right {
   flex: 1;
-  min-width: 350px;
+  min-width: 250px;
   text-align: left;
 }
-
+.title-container1 {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  justify-content: left; /* Centers the heading & line */
+  gap: 10px; /* Adds space between line and text */
+  width: 100%; /* Ensures full width */
+}
 .left {
   flex: 1;
-  min-width: 350px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -260,7 +290,7 @@ nav ul li a:hover {
 .pricing {
   text-align: center;
   padding: 50px 20px;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
 }
 
 .plans {
@@ -275,13 +305,14 @@ nav ul li a:hover {
   width: 300px;
   padding: 25px;
   background-color: #fff;
+  border: 0.4px solid #005ae2;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, background 0.3s;
 }
 
 .plan:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   background: linear-gradient(180deg, #1e3448 99.99%, rgba(30, 52, 72, 0) 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: #fff;
@@ -296,16 +327,41 @@ nav ul li a:hover {
   font-size: 18px;
   font-weight: bold;
 }
+.check-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: left;
+}
+
+.check-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.plan:hover .check-icon img {
+  filter: brightness(0) invert(1); /* Converts dark colors to white */
+}
 
 .plan ul {
   list-style: none;
   padding: 0;
 }
+.plan h2,
+.plan h4 {
+  text-align: left; /* Aligns text to the left */
+}
 
 .plan ul li {
   padding: 5px 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 }
-
+.text {
+  flex: 1;
+}
 /* Pricing Buttons */
 .pricing-buttons {
   display: flex;
@@ -324,7 +380,6 @@ nav ul li a:hover {
   transition: 0.3s ease-in-out;
 }
 
-
 .select-pricing:hover {
   transform: scale(1.1);
   background: linear-gradient(180deg, #007bff 99.99%, rgba(30, 52, 72, 0) 100%);
@@ -341,22 +396,27 @@ nav ul li a:hover {
 .choose-plan:hover {
   opacity: 0.8;
 }
-.trim{
-  width: 1440px;
+.trim {
+  width: 100%;
+  max-width: 1440px;
   height: 523px;
-  background: linear-gradient(180deg, #1E3448 99.99%, rgba(30, 52, 72, 0) 100%);
+  background: linear-gradient(180deg, #1e3448 99.99%, rgba(30, 52, 72, 0) 100%);
+  position: relative; /* Ensures everything stays inside */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .trim-container {
-  position: absolute;
-  left: 482px;
-  margin: 83.5px;
+  position: relative; /* Keeps it inside `.trim` */
   background: white;
   padding: 40px 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   width: 90%;
+  right: 500px;
   max-width: 500px;
   box-sizing: border-box;
+  z-index: 10; /* Makes sure it's ABOVE vectors */
 }
 
 .trim-container input,
@@ -418,6 +478,11 @@ nav ul li a:hover {
 .trim-container .disclaimer a:hover {
   text-decoration: underline;
 }
+.vector1 {
+  height: 100%; /* Matches the parent section */
+  width: auto; /* Maintains aspect ratio */
+}
+
 .integration {
   text-align: center;
   padding: 50px 20px;
@@ -434,6 +499,25 @@ nav ul li a:hover {
   list-style: none;
   padding: 0;
 }
+.title-container {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  justify-content: center; /* Centers the heading & line */
+  gap: 10px; /* Adds space between line and text */
+  width: 100%; /* Ensures full width */
+}
+
+.custom-line {
+  width: 5px; /* Thin vertical line */
+  height: 40px; /* Desired height */
+  background: linear-gradient(to bottom, black, white); /* Gradient effect */
+  border-radius: 5px; /* Smooth edges */
+}
+.FAQ h1, .pricing h2 {
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Ensures alignment */
+}
+
 
 .integration-details ul li {
   padding: 5px 0;
@@ -448,17 +532,19 @@ nav ul li a:hover {
   color: #fff;
   border-radius: 5px;
 }
-.FAQ .h2 {
-  border-left: none; 
-  padding: 10px;
-  margin: 0 auto; 
+.FAQs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
 }
-.FAQ{
-  position: relative;
-  width: 792px;
-  left: 324px;
-  gap: 64px;
+.FAQ {
+  background-color: #ffffff;
+  padding: 20px 250px;
 }
+
 details {
   border-top: 1px solid #cfc9c9;
   padding: 15px 0;
@@ -531,7 +617,7 @@ summary::after {
   position: relative;
   width: 1360px;
   height: 561px;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 40px;
 }
 
@@ -572,7 +658,7 @@ summary::after {
   width: 812px;
   gap: 40px;
 }
-.column{
+.column {
   width: 221px;
 }
 .footer-column {
@@ -581,7 +667,7 @@ summary::after {
 
 .footer-column h3 {
   font-size: 18px;
-  color: #333;
+  color: black;
   margin-bottom: 15px;
 }
 
@@ -596,7 +682,7 @@ summary::after {
 
 .footer-column ul li a {
   text-decoration: none;
-  color: #666;
+  color: black;
   font-size: 14px;
 }
 
@@ -604,8 +690,7 @@ summary::after {
 .footer-bottom {
   position: absolute;
   bottom: 20px;
-  left: 40px;
+  left: 1017px;
   font-size: 14px;
-  color: #666;
+  color: #0b0a0a;
 }
-
