@@ -598,7 +598,7 @@ summary::after {
   margin-bottom: 30px;
 }
 
-.revolution-button {
+.revolution-div{
   display: inline-block;
   background-color: #0066ff;
   color: #fff;
