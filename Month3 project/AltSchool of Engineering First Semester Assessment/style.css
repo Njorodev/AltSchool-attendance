@@ -1,71 +1,129 @@
+/*  ---Global Styles--- */
 body {
-  background-color: #f6f6f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
 }
-
+/*  ---Calculator Section--- */
 .calculator {
-  width: 320px;
-  background-color: #242530;
+    width: 350px;
+    height: auto;
+    background: #242530;
+    padding: 20px;
+    text-align: center;
+}
+/* ---Screen Section--- */
+/* Main display and the history display  */
+.screen input,
+#history-display {
+    width: 95%;
+    height: 60px;
+    font-size: 1.5em;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #3A3F77;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-.display {
-  background-color: #363b82;
-  color: white;
-  font-size: 1.8em;
-  padding: 20px;
-  border-radius: 25px;
-  margin-bottom: 15px;
-  text-align: right;
-  height: 60px;
-  overflow-x: auto;
+#history-display {
+    display: none; /* Hide history initially */
+}
+/* ---Contain the three grids holding the buttons--- */
+/* left buttons contain 0-9, . and DEL buttons.(one grid)
+   right pannel cosist of two grids: operators (top:x,÷,-,+,%,^) and extras (bottom:c,⟲,=) */
+.main-body {
+  display: flex;
 }
 
-.buttons {
+/* Left buttons section */
+.left-buttons {
+  width: 65%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 10px;
+  background: #242530;
+  padding: 10px;
 }
 
-.btn {
-  padding: 20px;
+.left-buttons button {
+  background: #404258;
   border: none;
-  border-radius: 25px;
-  font-size: 1.2em;
+  border-radius: 35px;
   color: white;
-  background-color: #2c2e44;
+  font-size: 1.2em;
+  padding: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
-.btn:hover {
-  background-color: #3a3c55;
+  /* backpace image */
+/*.del-img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 5px;
+    filter: invert(1); /* invert the image color for better visibility }*/
+/* Right Panel = Operators (top) + Extras (bottom) */
+.right-panel {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.op {
-  background-color: #ffa500;
+/* Operators Section */
+.operators {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+  background: #242530;
+  padding: 10px;
+  justify-items: center;
 }
 
-.op:hover {
-  background-color: #ffb933;
+.operators button {
+  background: #F49D1A;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
 }
 
-.equals {
-  grid-column: span 2;
-  background-color: #c5c5c5;
-  color: black;
+/* Extras Section */
+.extras {
+  display: flex;
+  background: #242530;
+  padding: 10px 5px;
 }
 
-#backspace {
-  background-color: #c5c5c5;
-  color: black;
+.extras button {
+  background: #B2B2B2;
+  margin: 2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
 }
-#backspace img {
-  width: 33px;
-  height: 24px;
-  position: relative;
-  filter: invert(1);
+/*  ---Hover Effects for all buttons --- */
+/* left buttons hover*/
+.left-buttons button:hover {
+    background: #ccc;
+}
+/* operators hover */
+.operators button:hover {
+    background: #e16a0f;
+}
+/* extras hover */
+.extras button:hover {
+    background: #76cc0d;
 }

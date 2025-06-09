@@ -4,37 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calculator</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="calculator">
-    <div class="display" id="display"></div>
-    <div class="buttons">
-      <button class="btn num">1</button>
-      <button class="btn num">2</button>
-      <button class="btn num">3</button>
-      <button class="btn op">×</button>
-      <button class="btn op">÷</button>
+    <!-- Screen -->
+    <div class="screen">
+        <input type="text" id="display" readonly>
+        <!-- History Display -->
+        <div id="history-display"></div>
+    </div>
 
-      <button class="btn num">4</button>
-      <button class="btn num">5</button>
-      <button class="btn num">6</button>
-      <button class="btn op">+</button>
-      <button class="btn op">-</button>
+    <!-- Main Body -->
+    <div class="main-body">
+      <!-- Left Buttons -->
+      <div class="left-buttons">
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button onclick="appendValue('.')">.</button>
+        <button onclick="appendValue('0')">0</button>
+        <button onclick="deleteLast()">⌫</button>
+      </div>
 
-      <button class="btn num">7</button>
-      <button class="btn num">8</button>
-      <button class="btn num">9</button>
-      <button class="btn op">%</button>
-      <button class="btn op">^</button>
-
-      <button class="btn num">.</button>
-      <button class="btn num">0</button>
-      <button class="btn" id="backspace"><img src="./delete.png" alt="backpase"></button>
-      <button class="btn equals" id="equals">=</button>
+      <!-- Right Panel: Operators & Extras -->
+      <div class="right-panel">
+        <!-- Operators -->
+        <div class="operators">
+          <button onclick="appendValue('×')">×</button>
+          <button onclick="appendValue('÷')">÷</button>
+          <button onclick="handlePlusMinus('-')">−</button>
+          <button onclick="handlePlusMinus('+')">+</button>
+          <button onclick="appendValue('%')">%</button>
+          <button onclick="appendValue('^')">^</button>
+        </div>
+        <!-- Extras -->
+        <div class="extras">
+          <button onclick="clearDisplay()" class="clear">C</button>
+          <button onclick="toggleHistory()" class="reset">⟲</button>
+          <button onclick="calculate()" class="equal">=</button>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>

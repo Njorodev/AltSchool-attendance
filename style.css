@@ -8,6 +8,11 @@ body {
     display: flex;
     justify-content: center;
 }
+.profile-icon {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
 /* Wrapper */
 blockquote {
