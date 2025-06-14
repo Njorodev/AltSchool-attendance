@@ -9,7 +9,7 @@ body {
 }
 /*  ---Calculator Section--- */
 .calculator {
-    width: 350px;
+    max-width: 350px;width: 90%;
     height: auto;
     background: #242530;
     padding: 20px;
@@ -126,4 +126,76 @@ body {
 /* extras hover */
 .extras button:hover {
     background: #76cc0d;
+}
+/* Adjusting right-panel buttons */
+.operators button,
+.extras button {
+    width: 8vw; /* Scales with screen width */
+    height: 8vw;
+    font-size: 2vw; /* Dynamically adjusts */
+}
+/* For larger screens (desktops/laptops) */
+@media screen and (min-width: 1025px) {
+    .calculator {
+        width: 70%;
+        max-width: 400px;
+    }
+    .left-buttons button {
+        font-size: 1.5em;
+        padding: 15px;
+    }
+    .operators button,
+    .extras button {
+        width: 55px; /* Restrict size */
+        height: 55px;
+        font-size: 1.3em;
+    }
+}
+
+/* For tablets */
+@media screen and (max-width: 1024px) {
+    .calculator {
+        width: 90%;
+        max-width: 350px;
+    }
+    .operators button,
+    .extras button {
+        width: 45px; /* Keep button sizing balanced */
+        height: 45px;
+        font-size: 1.2em;
+    }
+}
+
+/* For phones */
+@media screen and (max-width: 768px) {
+    .calculator {
+        width: 95%;
+        max-width: 380px;
+    }
+    .left-buttons button {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+}
+
+/* For smartwatches */
+@media screen and (max-width: 400px) {
+    .calculator {
+        width: 98%;
+        max-width: 250px;
+    }
+    .screen input {
+        font-size: 1em;
+        height: 50px;
+    }
+    .left-buttons button {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+    .operators button,
+    .extras button {
+        width: 33px;
+        height: 33px;
+        font-size: 0.8em;
+    }
 }
