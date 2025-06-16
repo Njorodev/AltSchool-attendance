@@ -1,8 +1,4 @@
 
-SEMESTER 1: HTML, CSS AND
-  JAVASCRIPT  
-
-
 # SEMESTER 1: HTML, CSS AND JAVASCRIPT
 
 ##   Month 1, Week 1: Introduction to AltSchool and Onboarding 
