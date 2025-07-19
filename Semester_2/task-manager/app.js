@@ -4,6 +4,13 @@ const colors = require("colors");
 
 const filePath = path.join(__dirname, "tasks.json");
 
+// Check for --version flag
+if (process.argv.includes("--version")) {
+  const packageData = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+  console.log(`🧠 Task Manager CLI version: ${packageData.version}`);
+  process.exit(0);
+}
+
 //Read Tasks
 function readTasks() {
   const data = fs.existsSync("tasks.json")
@@ -455,6 +462,12 @@ function prompt() {
         console.log(colors.green(`🗂 Archived task: ${desc}`));
         break;
       }
+      case "--version": {
+       const packageData = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+       console.log(colors.cyan(`Task Manager CLI version: ${packageData.version}`));
+       break;
+      }
+
       default:
         console.log("🔘 Unknown command.");
     }
