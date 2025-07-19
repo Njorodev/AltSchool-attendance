@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Second Semester - Task Manager</title>
+  </head>
+  <body>
+    <h1 id="-task-manager-cli">✨ Task Manager CLI</h1>
+    <p>
+      Welcome to the <strong>Task Manager CLI</strong> — your fast, flexible,
+      and fabulous companion for managing tasks with flair. This isn’t your
+      average command-line tool. It’s efficient, expressive, and smart enough to
+      ignore your capitalization quirks. Yes, you heard that right —
+      <em
+        ><strong
+          >no need to care for case, the system will do its magics.</strong
+        ></em
+      >
+      🎩✨
+    </p>
+    <h2 id="-features-that-make-life-easier">
+      🚀 Features That Make Life Easier
+    </h2>
+    <ul>
+      <li>✅ Add and organize tasks with optional due dates</li>
+      <li>✅ Complete, delete, and archive tasks smoothly</li>
+      <li>✅ Bulk add tasks with paired due dates in one go</li>
+      <li>✅ View, search, and clear archived history</li>
+      <li>✅ Intelligent duplicate detection (we skip what you already did)</li>
+      <li>✅ Terminal auto-clean for minimalists</li>
+      <li>✅ And yes... <strong>help is built in</strong></li>
+    </ul>
+    <h2 id="-usage-cheatsheet">🧭 Usage Cheatsheet</h2>
+    <p>
+      Here’s your trusty command guide. Use these inside the mini-terminal after
+      launching <code>task-manager</code>.
+    </p>
+    <h3 id="-core-commands">📌 Core Commands</h3>
+    <pre><code class="lang-bash">add <span class="hljs-string">"&lt;description&gt;"</span> <span class="hljs-variable">&lt;due-date&gt;</span>       <span class="hljs-comment"># Add a single task</span>
+bulkadd <span class="hljs-variable">&lt;desc1&gt;</span> <span class="hljs-variable">&lt;due1&gt;</span> <span class="hljs-variable">&lt;desc2&gt;</span> <span class="hljs-variable">&lt;due2&gt;</span> ...  <span class="hljs-comment"># Add multiple tasks at once</span>
+list                                  <span class="hljs-comment"># View all active tasks</span>
+complete <span class="hljs-variable">&lt;description&gt;</span>                <span class="hljs-comment"># Mark a task as completed</span>
+delete <span class="hljs-variable">&lt;description&gt;</span>                  <span class="hljs-comment"># Delete a task from active list</span>
+</code></pre>
+    <h3 id="-archive-commands">📁 Archive Commands</h3>
+    <pre><code class="lang-bash">archive <span class="hljs-variable">&lt;description&gt;</span>                 <span class="hljs-comment"># Move a completed task to archive</span>
+archive view                          <span class="hljs-comment"># Display archived tasks</span>
+archive search <span class="hljs-variable">&lt;keyword&gt;</span>             <span class="hljs-comment"># Search archived tasks by keyword</span>
+archive clear <span class="hljs-literal">all</span>                    <span class="hljs-comment"># Wipe the entire archive clean</span>
+archive clear <span class="hljs-variable">&lt;description&gt;</span>          <span class="hljs-comment"># Delete specific archived task</span>
+</code></pre>
+    <h3 id="-utility-commands">🧼 Utility Commands</h3>
+    <pre><code class="lang-bash">clear                                 <span class="hljs-comment"># Clear the screen (just visuals, not your soul)</span>
+help                                  <span class="hljs-comment"># View this magical guide</span>
+<span class="hljs-keyword">exit</span>                                  <span class="hljs-comment"># Leave the CLI gracefully</span>
+</code></pre>
+    <p>
+      💡
+      <em
+        >Don’t worry about typing &quot;Call mom&quot; or &quot;call MOM&quot; —
+        it all works. We read the vibes, not just the bytes.</em
+      >
+    </p>
+    <h2 id="-smart-task-handling">💎 Smart Task Handling</h2>
+    <ul>
+      <li>
+        ✨ <strong>Duplicate detection</strong>: Adding a task with the same
+        description and due date? The system will skip it and whisper:
+        <code>&quot;Call mom&quot; (2025-08-01) already exists.</code>
+      </li>
+      <li>
+        ✨ <strong>Bulkadd bonus</strong>: Adds every task except duplicates and
+        shows skipped ones.
+      </li>
+      <li>
+        ✨ <strong>Whitespace forgiveness</strong>: Leading/trailing spaces?
+        Unwanted quotes? We clean up after you, quietly.
+      </li>
+    </ul>
+    <h2 id="-tech-specs">🔨 Tech Specs</h2>
+    <ul>
+      <li>
+        Built with <strong>Node.js</strong> and <code>readline</code> for
+        terminal interaction
+      </li>
+      <li>Uses <code>colors</code> for fancy output</li>
+      <li>
+        Task data stored in <code>tasks.json</code> with structure:
+        <pre><code class="lang-json">{
+<span class="hljs-attr">"active"</span>: [],
+<span class="hljs-attr">"archived"</span>: []
+}
+</code></pre>
+      </li>
+    </ul>
+    <h2 id="-example-session">👀 Example Session</h2>
+    <pre><code class="lang-bash">task-manager&gt; bulkadd "Buy milk" 2025<span class="hljs-string">-07</span><span class="hljs-string">-20</span> "Call Mom" 2025<span class="hljs-string">-07</span><span class="hljs-string">-21</span> "Buy milk" 2025<span class="hljs-string">-07</span><span class="hljs-string">-20</span>
+🆕 Added: "Buy milk" (2025<span class="hljs-string">-07</span><span class="hljs-string">-20</span>)
+🆕 Added: "Call Mom" (2025<span class="hljs-string">-07</span><span class="hljs-string">-21</span>)
+⚠️ "Buy milk" (2025<span class="hljs-string">-07</span><span class="hljs-string">-20</span>) already exists. Skipped.
+</code></pre>
+    <h2 id="-data-storage">📦 Data Storage</h2>
+    <p>
+      Tasks are stored in JSON. You can peek inside, but no need to manually
+      edit — the CLI’s got everything under control.
+    </p>
+    <h2 id="-requirements-setup">🔧 Requirements &amp; Setup</h2>
+    <p>
+      Before launching the Task Manager CLI, make sure you’ve got the following
+      ready to roll:
+    </p>
+    <h3 id="-prerequisites">🧪 Prerequisites</h3>
+    <ul>
+      <li>
+        <a href="https://nodejs.org/">Node.js</a> (version
+        <strong>16.x</strong> or higher)
+      </li>
+      <li>Git (optional, for cloning the project)</li>
+      <li>Terminal access (Command Prompt, Bash, Zsh, etc.)</li>
+    </ul>
+    <h2 id="-installation-steps">🚀 Installation Steps</h2>
+    <h3 id="1-clone-the-repository">1. 🧬 Clone the Repository</h3>
+    <pre><code class="lang-bash">git clone https://github.com/Njorodev/AltSchool-attendance/Semester_2/task-manager
+ <span class="hljs-keyword">cd</span> task-manager
+</code></pre>
+    <p>Or download the ZIP manually and extract it to your preferred folder.</p>
+    <p><a href="../task-manager.zip" download class="download-btn">📦 Download ZIP</a></p>
+    <h3 id="2-install-dependencies">2. 📦 Install Dependencies</h3>
+    <p>Run this from inside the project directory:</p>
+    <pre><code class="lang-bash">npm <span class="hljs-keyword">install</span>
+</code></pre>
+    <blockquote>
+      <p>
+        This grabs all required packages like <code>colors</code>, and sets up
+        your CLI environment.
+      </p>
+    </blockquote>
+    <h3 id="3-start-the-task-manager-cli">3. 🔥 Start the Task Manager CLI</h3>
+    <pre><code class="lang-bash"><span class="hljs-keyword">node</span> <span class="hljs-title">app</span>.js
+</code></pre>
+    <p>Boom — your ASCII splash screen, help guide, and prompt will appear.</p>
+    <pre><code class="lang-plaintext">✨ Welcome to <span class="hljs-keyword">Task</span> Manager CLI ✨
+<span class="hljs-keyword">task</span>-manager&gt;
+</code></pre>
+    <p>You’re now fully interactive. The magic awaits 💫</p>
+    <h2 id="-getting-started">🧙 Getting Started</h2>
+    <p>Once inside the CLI, try commands like:</p>
+    <pre><code class="lang-bash">add <span class="hljs-string">"Study for finals"</span> <span class="hljs-number">2025</span><span class="hljs-number">-07</span><span class="hljs-number">-22</span>
+bulkadd <span class="hljs-string">"Buy snacks"</span> <span class="hljs-number">2025</span><span class="hljs-number">-07</span><span class="hljs-number">-23</span> <span class="hljs-string">"Sleep early"</span> <span class="hljs-number">2025</span><span class="hljs-number">-07</span><span class="hljs-number">-24</span>
+<span class="hljs-type">list</span>
+archive <span class="hljs-string">"Study for finals"</span>
+archive view
+</code></pre>
+    <p>
+      <img src="screenshots/Task%20Mananger.png" alt="Task Mananger" />
+      <img src="screenshots/bulkadd_add_list.png" alt="Add,BulkAdd,list" />
+      <img src="screenshots/archive_complete.png" alt="Archive,Complete" />
+    </p>
+    <p>To clear the screen and reorient:</p> 
+    <pre><code class="lang-bash"><span class="hljs-built_in">clear</span>
+</code></pre>
+    <p>To get help:</p>
+    <pre><code class="lang-bash"><span class="hljs-keyword">help</span>
+…<span class="hljs-keyword">and</span> the CLI will kindly walk you <span class="hljs-keyword">through</span> every <span class="hljs-keyword">option</span> <span class="hljs-keyword">like</span> a loyal friend. <span class="hljs-keyword">Or</span> an unpaid intern <span class="hljs-keyword">with</span> excellent manners.
+</code></pre>
+    <p>To leave the CLI peacefully:</p>
+    <pre><code class="lang-bash"><span class="hljs-keyword">exit</span>
+</code></pre>
+    <h2 id="-contributing">🙌 Contributing</h2>
+    <p>
+      Found a quirk or want to improve the command suite? Fork it, polish it,
+      and let the task-manager shine brighter.
+    </p>
+    <p>Made with ❤️, sarcasm, and fewer keystrokes than a spreadsheet.</p>
+  </body>
+</html>
