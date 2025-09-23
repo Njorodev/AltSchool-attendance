@@ -1,0 +1,97 @@
+/* Base reset and elegance */
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #0e0e0e;
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  color: #00ffcc;
+  margin-top: 2rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #ffd700;
+}
+
+strong {
+  color: #fff;
+}
+
+em {
+  color: #999;
+  font-style: italic;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "• ";
+  color: #00ffcc;
+  padding-right: 0.4em;
+}
+
+code {
+  background-color: #1a1a1a;
+  color: #ffdb4d;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+pre {
+  background-color: #1a1a1a;
+  padding: 1em;
+  border-left: 4px solid #00ffcc;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  margin-top: 1rem;
+  max-width: 100%;
+  border: 2px solid #555;
+  border-radius: 6px;
+}
+
+/* Blockquote styling for side notes */
+blockquote {
+  background-color: #222;
+  border-left: 4px solid #00ffcc;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #ccc;
+}
+
+/* Terminal command styling */
+.hljs-comment {
+  color: #777;
+  font-style: italic;
+}
+
+.hljs-string, .hljs-variable, .hljs-keyword, .hljs-title, .hljs-built_in, .hljs-type, .hljs-literal {
+  color: #00ffcc;
+}
