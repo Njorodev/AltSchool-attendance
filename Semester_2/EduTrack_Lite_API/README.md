@@ -39,7 +39,6 @@ It provides **CRUD operations** for `Users`, `Courses`, and `Enrollments` with s
 | `title` | str | Course name |
 | `description` | str | Brief description |
 | `is_open` | bool | Whether the course is open for enrollment (default: `True`) |
-| `is_open` | bool | Whether the course is open for enrollment (default: `True`) |
 
 ### 📝 Enrollment
 
