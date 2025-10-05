@@ -10,10 +10,7 @@ app.include_router(user_router, prefix="/users", tags=["Users"])
 app.include_router(event_router, prefix="/events", tags=["Events"])
 app.include_router(speaker_router, prefix="/speakers", tags=["Speakers"])
 app.include_router(registration_router, prefix="/event-registration", tags=["Event Registration"])
-@app.get("/")
-def root():
-    return {"message": "EduTrack Lite API is running on Render 🚀"}
 
-@app.get("/home", status_code=200)
+@app.get("/", status_code=200)
 def home():
     return {"message": "Hello from the Events booking API"}
