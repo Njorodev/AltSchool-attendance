@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack Lite Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎓 EduTrack Lite Dashboard</h1>
+    <p>Manage Users, Courses, and Enrollments easily.</p>
+  </header>
+
+  <main>
+    <!-- User Management -->
+    <section>
+      <h2>👤 Users</h2>
+      <form id="userForm">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <button type="submit">Add User</button>
+      </form>
+      <button onclick="loadUsers()">View All Users</button>
+      <ul id="userList"></ul>
+    </section>
+
+    <!-- Course Management -->
+    <section>
+      <h2>📚 Courses</h2>
+      <form id="courseForm">
+        <input type="text" id="title" placeholder="Course Title" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <button type="submit">Add Course</button>
+      </form>
+      <button onclick="loadCourses()">View All Courses</button>
+      <ul id="courseList"></ul>
+    </section>
+
+    <!-- Enrollment Management -->
+    <section>
+      <h2>📝 Enrollments</h2>
+      <form id="enrollForm">
+        <input type="number" id="userId" placeholder="User ID" required />
+        <input type="number" id="courseId" placeholder="Course ID" required />
+        <button type="submit">Enroll User</button>
+      </form>
+      <button onclick="loadEnrollments()">View All Enrollments</button>
+      <ul id="enrollList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EduTrack Lite | Powered by FastAPI & GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
