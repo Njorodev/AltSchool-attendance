@@ -1,0 +1,10 @@
+# _config.yml
+title: AltSchool Portfolio
+description: Personal portfolio and projects by Frank Njoroge
+theme: null
+exclude:
+  - bin/
+  - venv/
+  - __pycache__/
+  - node_modules/
+  - README.md
