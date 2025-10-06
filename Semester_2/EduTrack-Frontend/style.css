@@ -84,3 +84,33 @@ li.inactive {
 li.closed {
   background: #fde8c4;
 }
+#notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#notification.show {
+  opacity: 1;
+}
+
+#notification.success {
+  background-color: #28a745;
+}
+
+#notification.error {
+  background-color: #dc3545;
+}
+
+#notification.warning {
+  background-color: #ffc107;
+  color: #222;
+}

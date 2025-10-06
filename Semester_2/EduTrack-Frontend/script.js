@@ -13,7 +13,7 @@ async function loadUsers() {
 
     list.innerHTML = users
       .map((u) => {
-        const isActive = u.is_active; // correct backend property
+        const isActive = u.is_active; // backend property
 
         return `
         <li class="${isActive ? "" : "inactive"}">
@@ -33,7 +33,7 @@ async function loadUsers() {
       .join("");
   } catch (error) {
     console.error(error);
-    alert("Error loading users: " + error.message);
+    showNotification("Error loading users: " + error.message, "error");
   }
 }
 
@@ -45,39 +45,59 @@ async function deactivateUser(id) {
       throw new Error(`Deactivate failed: ${res.status} ${text}`);
     }
 
-    // Reload list to immediately reflect status change
-    await loadUsers();
+    showNotification(`User ${id} deactivated successfully!`, "success");
+    await loadUsers(); // Refresh list
   } catch (error) {
     console.error("Error deactivating user:", error);
-    alert("Error deactivating user: " + error.message);
-  }
-}
-
-
-async function deactivateUser(id) {
-  try {
-    const res = await fetch(`${API}/users/${id}/deactivate`, { method: "POST" });
-    if (!res.ok) throw new Error("Failed to deactivate user.");
-    await loadUsers(); // Refresh the user list to reflect status change
-  } catch (error) {
-    alert("Error deactivating user: " + error.message);
+    showNotification("Error deactivating user: " + error.message, "error");
   }
 }
 
 async function deleteUser(id) {
-  await fetch(`${API}/users/${id}`, { method: "DELETE" });
-  loadUsers();
+  try {
+    const res = await fetch(`${API}/users/${id}`, { method: "DELETE" });
+    if (!res.ok) throw new Error(`Failed to delete user ${id}.`);
+    showNotification(`User ${id} deleted successfully!`, "success");
+    await loadUsers();
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    showNotification("Error deleting user: " + error.message, "error");
+  }
 }
 
-function editUser(id) {
-  const newName = prompt("Enter new name:");
-  const newEmail = prompt("Enter new email:");
-  if (!newName || !newEmail) return;
-  fetch(`${API}/users/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: newName, email: newEmail }),
-  }).then(loadUsers);
+async function editUser(id) {
+  try {
+    const newName = prompt("Enter new name:");
+    const newEmail = prompt("Enter new email:");
+    if (!newName || !newEmail) return;
+
+    const res = await fetch(`${API}/users/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: newName, email: newEmail }),
+    });
+
+    if (!res.ok) throw new Error(`Failed to update user ${id}.`);
+
+    showNotification(`User ${id} updated successfully!`, "success");
+    await loadUsers();
+  } catch (error) {
+    console.error("Error editing user:", error);
+    showNotification("Error editing user: " + error.message, "error");
+  }
+}
+
+/**
+ * Example notification function
+ */
+function showNotification(message, type) {
+  // type = "success" | "error"
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+
+  setTimeout(() => notification.remove(), 3000);
 }
 
 document.getElementById("userForm").addEventListener("submit", async (e) => {
@@ -149,53 +169,53 @@ async function loadCourses() {
 }
 async function patchCourse(id) {
   try {
-    // Get existing course details first
     const res = await fetch(`${API}/courses/${id}`);
     if (!res.ok) throw new Error("Failed to fetch course details.");
     const course = await res.json();
 
-    // Prompt user for new values (default = current values)
     const newTitle = prompt("Enter new course title:", course.title);
-    if (newTitle === null) return; // Cancelled
+    if (newTitle === null) return;
     const newDescription = prompt("Enter new course description:", course.description);
     if (newDescription === null) return;
 
-    // Send PATCH (or PUT if API doesn’t support PATCH)
     const updateRes = await fetch(`${API}/courses/${id}`, {
-      method: "PUT", // if your API supports PATCH, change this to PATCH
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: newTitle,
-        description: newDescription
-      }),
+      body: JSON.stringify({ title: newTitle, description: newDescription }),
     });
 
     if (!updateRes.ok) throw new Error("Failed to update course.");
-
-    alert("Course updated successfully!");
-    await loadCourses(); // reload list
+    showNotification("✅ Course updated successfully!", "success");
+    await loadCourses();
   } catch (error) {
     console.error(error);
-    alert("Error updating course: " + error.message);
+    showNotification("❌ Error updating course: " + error.message, "error");
   }
 }
-
 
 async function closeCourse(id) {
   try {
     const res = await fetch(`${API}/courses/${id}/close`, { method: "POST" });
     if (!res.ok) throw new Error(`Failed to close course ${id}.`);
-    await loadCourses(); // refresh immediately
+    showNotification(`✅ Course ${id} closed successfully!`, "success");
+    await loadCourses();
   } catch (error) {
     console.error(error);
-    alert("Error closing course: " + error.message);
+    showNotification("❌ " + error.message, "error");
   }
 }
 
 async function deleteCourse(id) {
-  await fetch(`${API}/courses/${id}`, { method: "DELETE" });
-  loadCourses();
+  try {
+    const res = await fetch(`${API}/courses/${id}`, { method: "DELETE" });
+    if (!res.ok) throw new Error("Failed to delete course.");
+    showNotification(`🗑️ Course ${id} deleted successfully.`, "warning");
+    await loadCourses();
+  } catch (error) {
+    showNotification("❌ Error deleting course: " + error.message, "error");
+  }
 }
+
 
 async function viewUsersInCourse(id) {
   try {
@@ -204,30 +224,26 @@ async function viewUsersInCourse(id) {
     
     const userIds = await res.json();
     if (!userIds.length) {
-      alert("No users enrolled yet.");
+      showNotification("⚠️ No users enrolled yet.", "warning");
       return;
     }
 
-    // Fetch full user details for each ID
     const users = await Promise.all(
       userIds.map(async (uid) => {
         const ures = await fetch(`${API}/users/${uid}`);
         if (!ures.ok) return { id: uid, name: "Unknown" };
-        const user = await ures.json();
-        return user;
+        return await ures.json();
       })
     );
 
-    alert(
-      `Users enrolled in course ${id}:\n` +
-        users.map((u) => `- ${u.id}: ${u.name ?? u.email ?? "Unknown"}`).join("\n")
-    );
+    const list = users.map((u) => `- ${u.id}: ${u.name ?? u.email ?? "Unknown"}`).join("\n");
+    showNotification(`👥 Users enrolled in course ${id}: check console.`, "success");
+    console.log(`Course ${id} users:\n${list}`);
   } catch (error) {
-    alert("Error loading users for this course: " + error.message);
+    showNotification("❌ Error loading users: " + error.message, "error");
   }
 }
-
-
+ 
 
 document.getElementById("courseForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -265,8 +281,26 @@ async function loadEnrollments() {
 }
 
 async function markComplete(id) {
-  await fetch(`${API}/enrollments/${id}/complete`, { method: "POST" });
-  loadEnrollments();
+  try {
+    const res = await fetch(`${API}/enrollments/${id}/complete`, { method: "POST" });
+
+    if (res.status === 404) {
+      showNotification(`❌ Enrollment ${id} not found.`, "error");
+      return;
+    }
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Failed to mark enrollment complete.");
+    }
+
+    const enrollment = await res.json();
+    showNotification(`✅ Enrollment ${enrollment.id} marked complete!`, "success");
+    loadEnrollments();
+  } catch (error) {
+    console.error(error);
+    showNotification(`❌ Error: ${error.message}`, "error");
+  }
 }
 
 document.getElementById("enrollForm").addEventListener("submit", async (e) => {
