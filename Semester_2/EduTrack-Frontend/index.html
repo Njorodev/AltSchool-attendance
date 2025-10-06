@@ -9,41 +9,47 @@
 <body>
   <header>
     <h1>🎓 EduTrack Lite Dashboard</h1>
-    <p>Manage Users, Courses, and Enrollments easily.</p>
+    <p>Manage Users, Courses & Enrollments with ease.</p>
   </header>
 
   <main>
-    <!-- User Management -->
+    <!-- USERS -->
     <section>
       <h2>👤 Users</h2>
       <form id="userForm">
-        <input type="text" id="name" placeholder="Name" required />
-        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="userName" placeholder="Name" required />
+        <input type="email" id="userEmail" placeholder="Email" required />
         <button type="submit">Add User</button>
       </form>
+
+      <form id="batchUserForm">
+        <textarea id="batchUsers" placeholder='Enter JSON Array [{"name":"A","email":"a@x.com"}]' rows="4"></textarea>
+        <button type="submit">Add Batch Users</button>
+      </form>
+
       <button onclick="loadUsers()">View All Users</button>
       <ul id="userList"></ul>
     </section>
 
-    <!-- Course Management -->
+    <!-- COURSES -->
     <section>
       <h2>📚 Courses</h2>
       <form id="courseForm">
-        <input type="text" id="title" placeholder="Course Title" required />
-        <input type="text" id="description" placeholder="Description" required />
+        <input type="text" id="courseTitle" placeholder="Title" required />
+        <input type="text" id="courseDescription" placeholder="Description" required />
         <button type="submit">Add Course</button>
       </form>
       <button onclick="loadCourses()">View All Courses</button>
       <ul id="courseList"></ul>
     </section>
 
-    <!-- Enrollment Management -->
+    <!-- ENROLLMENTS -->
     <section>
       <h2>📝 Enrollments</h2>
       <form id="enrollForm">
-        <input type="number" id="userId" placeholder="User ID" required />
-        <input type="number" id="courseId" placeholder="Course ID" required />
-        <button type="submit">Enroll User</button>
+        <input type="number" id="enrollUserId" placeholder="User ID" required />
+        <input type="number" id="enrollCourseId" placeholder="Course ID" required />
+        <button type="submit">Enroll</button>
       </form>
       <button onclick="loadEnrollments()">View All Enrollments</button>
       <ul id="enrollList"></ul>
@@ -51,7 +57,7 @@
   </main>
 
   <footer>
-    <p>© 2025 EduTrack Lite | Powered by FastAPI & GitHub Pages</p>
+    <p>© 2025 EduTrack Lite | Powered by FastAPI</p>
   </footer>
 
   <script src="script.js"></script>
