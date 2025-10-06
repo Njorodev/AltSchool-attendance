@@ -244,6 +244,11 @@ After running the app, visit:
 
 ---
 
+## 🔬️ In action
+
+*[**FrontEnd**](https://njorodev.github.io/AltSchool-attendance/Semester_2/EduTrack-Frontend/index.html)
+*[**BackEnd**](https://edu-track-api.onrender.com/docs)
+
 ## 👨‍💻 Author
 
 **Frank Njoroge**
